@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Component matches snapshot perfectly for loginscreen 1`] = `
+<div
+  className="sc-bdvvaa BhqoN"
+  height={768}
+>
+  <div
+    className="sc-gsDJrp egHnjR"
+  >
+    <div
+      className="sc-hKwCoD faqGRQ"
+    >
+      <div
+        className="sc-dkPtyc jVJYKn"
+      >
+        <h1>
+          Registration
+        </h1>
+        <img
+          alt={Object {}}
+          src="substract.png"
+        />
+        <h4>
+          You need to register in order to procee
+        </h4>
+        <div
+          className="sc-jrQzUz ltEOZ"
+        >
+          <h4>
+            Your name here
+          </h4>
+          <input
+            className="sc-kDThTU gVVStl"
+            height="30px"
+            name="name"
+            onChange={[Function]}
+            placeholder="Name"
+            type="text"
+          />
+        </div>
+        <div
+          className="sc-jrQzUz ltEOZ"
+        >
+          <h4>
+            Password
+          </h4>
+          <input
+            className="sc-kDThTU ibWfVL"
+            height="30px"
+            name="name"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+          />
+          <label
+            className="ant-checkbox-wrapper"
+            style={
+              Object {
+                "fontSize": 13,
+                "fontWeight": 500,
+              }
+            }
+          >
+            <span
+              className="ant-checkbox"
+              style={Object {}}
+            >
+              <input
+                checked={false}
+                className="ant-checkbox-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyPress={[Function]}
+                onKeyUp={[Function]}
+                type="checkbox"
+              />
+              <span
+                className="ant-checkbox-inner"
+              />
+            </span>
+            <span>
+               
+              Show Password
+            </span>
+          </label>
+        </div>
+        <div
+          className="sc-iqsfdx dJzaLt"
+          data-testid="button"
+          height="15px"
+          onClick={[Function]}
+          width="40%"
+        >
+          <b>
+            Proceed
+          </b>
+        </div>
+        <div
+          className="sc-crHlIS kLhkLr"
+        >
+          <b
+            className="sc-egiSv kjROWm"
+          >
+            <hr />
+            <b>
+              FOLLOW US ON
+            </b>
+            <hr />
+          </b>
+          <div
+            className="sc-bqiQRQ SZbYN"
+          >
+            <div
+              className="sc-ksdxAp QUrnf"
+              onClick={[Function]}
+            >
+              <b
+                className="sc-hBURRC fqFsmD"
+              >
+                <img
+                  alt={Object {}}
+                  src="twitter.png"
+                />
+                Twitter
+              </b>
+            </div>
+            <div
+              className="sc-ksdxAp QUrnf"
+              onClick={[Function]}
+            >
+              <b
+                className="sc-hBURRC dvfuTS"
+              >
+                <img
+                  alt={Object {}}
+                  src="facebook.png"
+                />
+                Facebook
+              </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="sc-eCImvq dbOFKR"
+    >
+      <img
+        className="sc-jRQAMF fPNhRG"
+        src="exams.png"
+      />
+    </div>
+  </div>
+</div>
+`;

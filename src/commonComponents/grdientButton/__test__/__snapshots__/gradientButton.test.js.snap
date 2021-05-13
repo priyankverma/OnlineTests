@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches Snapshot Continue 1`] = `
+<div
+  className="sc-bdvvaa ksCvjJ"
+  data-testid="button"
+  height="15px"
+  onClick={[Function]}
+  width="30%"
+>
+  <b>
+    Continue
+  </b>
+</div>
+`;
+
+exports[`Matches Snapshot Proceed 1`] = `
+<div
+  className="sc-bdvvaa ksCvjJ"
+  data-testid="button"
+  height="15px"
+  onClick={[Function]}
+  width="30%"
+>
+  <b>
+    Proceed
+  </b>
+</div>
+`;
