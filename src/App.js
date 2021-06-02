@@ -3,17 +3,18 @@ import React, { Component } from "react";
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import combinedReducer from "./../src/redux/combinedReducers";
-import { Redirect } from "react-router-dom";
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   withRouter,
+  Redirect,
 } from "react-router-dom";
 import Dashboard from "../src/screens/dashboard/dashboard";
 import LoginScreen from "./screens/login/loginScreen";
 import Summary from "./screens/summary/summary";
+import PrivateRoute from "./commonComponents/privateRoute/privateRoute";
 const ReduxThunk = require("redux-thunk").default;
 
 let composeEnhancer = compose;
@@ -22,6 +23,7 @@ export const store = createStore(
   combinedReducer, // pass in the combined reducers
   composeEnhancer(applyMiddleware(ReduxThunk)) // use the middleware for async actions
 );
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,6 +58,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("signupReducer", this.props.signupReducer);
     return (
       <Provider store={store}>
         <Router>
@@ -67,6 +70,12 @@ class App extends Component {
             />
 
             <Route exact path="/loginScreen" component={LoginScreen} />
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute path="/summary">
+              <Summary />
+            </PrivateRoute>
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/summary" component={Summary} />
           </Switch>
@@ -76,4 +85,5 @@ class App extends Component {
   }
 }
 
+// export default connect(mapStateToProps, null)(App);
 export default withRouter(App);
