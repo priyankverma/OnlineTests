@@ -70,6 +70,7 @@ export const Dashboard = (props) => {
   useEffect(() => {
     let userData = localStorage.getItem("userData");
     let stringifiedUserData = userData !== null ? JSON.parse(userData) : null;
+    console.log("stringifiedUserData", stringifiedUserData);
     stringifiedUserData &&
       dispatch(
         registerAction({

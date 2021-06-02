@@ -3,7 +3,6 @@ import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 const PrivateRoute = ({ children, ...rest }) => {
   const reducerData = useSelector((state) => state);
-  console.log("reducerData", reducerData);
 
   const { signupReducer } = reducerData;
   const { data } = signupReducer;

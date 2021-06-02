@@ -22,31 +22,46 @@ exports[`Login Component matches snapshot perfectly for loginscreen 1`] = `
           src="substract.png"
         />
         <h4>
-          You need to register in order to procee
+          You need to register in order to proceed
         </h4>
         <div
-          className="sc-jrQzUz ltEOZ"
+          className="sc-kDThTU iYMzkf"
         >
           <h4>
-            Your name here
+            Full Name
           </h4>
           <input
-            className="sc-kDThTU gVVStl"
+            className="sc-iqsfdx jSugYC"
             height="30px"
             name="name"
             onChange={[Function]}
-            placeholder="Name"
+            placeholder="Your Full Name here"
             type="text"
           />
         </div>
         <div
-          className="sc-jrQzUz ltEOZ"
+          className="sc-kDThTU iYMzkf"
+        >
+          <h4>
+            User Name
+          </h4>
+          <input
+            className="sc-iqsfdx jSugYC"
+            height="30px"
+            name="name"
+            onChange={[Function]}
+            placeholder="eg: john.doe"
+            type="text"
+          />
+        </div>
+        <div
+          className="sc-kDThTU iYMzkf"
         >
           <h4>
             Password
           </h4>
           <input
-            className="sc-kDThTU ibWfVL"
+            className="sc-iqsfdx kXaPAk"
             height="30px"
             name="name"
             onChange={[Function]}
@@ -88,21 +103,42 @@ exports[`Login Component matches snapshot perfectly for loginscreen 1`] = `
           </label>
         </div>
         <div
-          className="sc-iqsfdx dJzaLt"
+          className="sc-kDThTU iYMzkf"
+        >
+          <h4>
+            Confirm Password
+          </h4>
+          <input
+            className="sc-iqsfdx kXaPAk"
+            height="30px"
+            name="name"
+            onChange={[Function]}
+            placeholder="Confirm Password"
+            type="password"
+          />
+        </div>
+        <div
+          className="sc-crHlIS dGQxoR"
           data-testid="button"
           height="15px"
           onClick={[Function]}
           width="40%"
         >
           <b>
-            Proceed
+            Register
           </b>
         </div>
         <div
-          className="sc-crHlIS kLhkLr"
+          className="sc-jrQzUz fbtoWd"
+          onClick={[Function]}
+        >
+          Login Instead
+        </div>
+        <div
+          className="sc-egiSv ihZiIS"
         >
           <b
-            className="sc-egiSv kjROWm"
+            className="sc-bqiQRQ lmeWjw"
           >
             <hr />
             <b>
@@ -111,14 +147,14 @@ exports[`Login Component matches snapshot perfectly for loginscreen 1`] = `
             <hr />
           </b>
           <div
-            className="sc-bqiQRQ SZbYN"
+            className="sc-ksdxAp hiPLpM"
           >
             <div
-              className="sc-ksdxAp QUrnf"
+              className="sc-hBURRC kxuSNu"
               onClick={[Function]}
             >
               <b
-                className="sc-hBURRC fqFsmD"
+                className="sc-fotPbf iBZyJC"
               >
                 <img
                   alt={Object {}}
@@ -128,11 +164,11 @@ exports[`Login Component matches snapshot perfectly for loginscreen 1`] = `
               </b>
             </div>
             <div
-              className="sc-ksdxAp QUrnf"
+              className="sc-hBURRC kxuSNu"
               onClick={[Function]}
             >
               <b
-                className="sc-hBURRC dvfuTS"
+                className="sc-fotPbf dEZogT"
               >
                 <img
                   alt={Object {}}

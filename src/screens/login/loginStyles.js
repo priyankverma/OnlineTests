@@ -184,3 +184,15 @@ export const CheckboxWrap = styled.div`
   /* overflow-y: scroll; */
   /* flex-direction: column; */
 `;
+
+export const LoginLink = styled.div`
+  color: blueviolet;
+  font-size: 16;
+  font-weight: bold;
+  align-self: center;
+  padding-top: 2%;
+  cursor: pointer;
+
+  /* overflow-y: scroll; */
+  /* flex-direction: column; */
+`;

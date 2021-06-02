@@ -14,7 +14,7 @@ describe("Login Component", () => {
   // render(LoginComponent);
   test("username textInput must set username correctly", () => {
     render(LoginComponent);
-    const usernameInput = screen.getByPlaceholderText("Name");
+    const usernameInput = screen.getByPlaceholderText("eg: john.doe");
     expect(usernameInput).toHaveValue(""); // checks for initial value to be ""
 
     fireEvent.change(usernameInput, { target: { value: "testName" } });

@@ -14,11 +14,11 @@ function TextWrapper(props) {
         height={height ? height : "30px"}
         marginBottom={type === "password" ? "3%" : 0}
         placeholder={placeHolder}
-        type={!checkVal ? type : "text"}
+        type={!checkVal || placeHolder === "Confirm Password" ? type : "text"}
         name="name"
       />
 
-      {type === "password" ? (
+      {type === "password" && placeHolder !== "Confirm Password" ? (
         <Checkbox style={styles} onChange={() => setcheckVal(!checkVal)}>
           {" "}
           Show Password

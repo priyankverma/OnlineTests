@@ -22,6 +22,7 @@ import {
   InstructionsWrap,
   Instructions,
   CheckboxWrap,
+  LoginLink,
 } from "./loginStyles";
 import { useHistory } from "react-router-dom";
 
@@ -40,9 +41,15 @@ function LoginScreen(props) {
   const [showExamInfo, setshowExamInfo] = useState(false);
   const [termAccepted, settermAccepted] = useState(false);
   const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [cPassword, setcPassword] = useState("");
   const [selectLevel, setSelectLevel] = useState(false);
   const [value, setValue] = React.useState(1);
+  const [registered, setRegistered] = useState(false);
+  const [loginUser, setloginUser] = useState("");
+  const [loginPassword, setloginPassword] = useState("");
+  const [userData, setuserData] = useState(null);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -52,13 +59,27 @@ function LoginScreen(props) {
    * length of the password should not be less then 5 characters.
    */
   function ProceedTapped() {
-    if (username === "") {
+    if (name === "") {
+      message.error("Please enter your name");
+    } else if (username === "") {
       message.error("Username can't be empty");
     } else if (password === "") {
       message.error("Please enter the password");
     } else if (password.length < 5) {
       message.error("Password should be atleast 6 characters long.");
+    } else if (cPassword === "") {
+      message.error("Please confirm the password.");
+    } else if (cPassword !== password) {
+      message.error("The passwords didn't matched.");
     } else {
+      window.sessionStorage.setItem(
+        "userData",
+        JSON.stringify({
+          username: username,
+          password: password,
+          complexityLevel: value,
+        })
+      );
       setshowExamInfo(true);
     }
   }
@@ -72,19 +93,72 @@ function LoginScreen(props) {
     setValue(e.target.value);
   };
 
+  const login = () => {
+    if (loginUser === "") message.error("Username can't be empty");
+    else if (loginPassword === "") message.error("Please enter the password");
+    else if (
+      loginUser !== userData.username ||
+      loginPassword !== userData.password
+    )
+      message.error(
+        "Your Credentials didn't matched our records, please enter the correct username and password"
+      );
+    else {
+      // dispatches the register action in redux, to save the user credentials and complexity level selected by the user
+
+      dispatch(
+        registerAction({
+          username: username,
+          password: password,
+          complexityLevel: value,
+        })
+      );
+      history.replace("/dashboard");
+    }
+  };
+
   return (
     <Wrapper height={height}>
       <ContentWrap1>
         <RowWrap1>
           <ContentWrap2>
-            <h1>{showExamInfo ? "Instructions" : "Registration"}</h1>
+            <h1>
+              {registered
+                ? "Login"
+                : showExamInfo
+                ? "Instructions"
+                : "Registration"}
+            </h1>
             <img alt={{}} src={lineImage} />
             <h4>
-              {showExamInfo
+              {registered
+                ? "Please Login to continue"
+                : showExamInfo
                 ? "Read the Instructions carefully"
-                : "You need to register in order to procee"}
+                : "You need to register in order to proceed"}
             </h4>
-            {selectLevel ? (
+            {registered ? (
+              <>
+                <TextWrapper
+                  testid="usernameInput"
+                  type="text"
+                  placeHolder="User Name"
+                  title="User Name"
+                  onChangeText={(e) => setloginUser(e.target.value)}
+                />
+                <TextWrapper
+                  type="password"
+                  placeHolder="Password"
+                  title="Password"
+                  onChangeText={(e) => setloginPassword(e.target.value)}
+                />
+                <GradientButton
+                  title={"Login"}
+                  onPress={() => login()}
+                  buttonWidth="40%"
+                />
+              </>
+            ) : selectLevel ? (
               <div>
                 <div>Please Select the level of complexity</div>
                 <Radio.Group
@@ -110,24 +184,16 @@ function LoginScreen(props) {
                     }
                     title={"Continue"}
                     onPress={() => {
-                      // dispatches the register action in redux, to save the user credentials and complexity level selected by the user
-                      localStorage.setItem(
-                        "userData",
-                        JSON.stringify({
-                          username: username,
-                          password: password,
-                          complexityLevel: value,
-                        })
-                      );
+                      setRegistered(true);
 
-                      dispatch(
-                        registerAction({
-                          username: username,
-                          password: password,
-                          complexityLevel: value,
-                        })
-                      );
-                      history.replace("/dashboard");
+                      setTimeout(() => {
+                        let userData = window.sessionStorage.getItem(
+                          "userData"
+                        );
+                        let stringifiedUserData =
+                          userData !== null ? JSON.parse(userData) : null;
+                        setuserData(stringifiedUserData);
+                      }, 300);
                     }}
                   />
                 </ButtonWrap>
@@ -161,23 +227,48 @@ function LoginScreen(props) {
             ) : (
               <>
                 <TextWrapper
+                  testid="nameInput"
+                  type="text"
+                  placeHolder="Your Full Name here"
+                  title="Full Name"
+                  onChangeText={(e) => setName(e.target.value)}
+                />
+                <TextWrapper
                   testid="usernameInput"
                   type="text"
-                  placeHolder="Name"
-                  title="Your name here"
+                  placeHolder="eg: john.doe"
+                  title="User Name"
                   onChangeText={(e) => setUsername(e.target.value)}
                 />
+
                 <TextWrapper
                   type="password"
                   placeHolder="Password"
                   title="Password"
                   onChangeText={(e) => setPassword(e.target.value)}
                 />
+                <TextWrapper
+                  type="password"
+                  placeHolder="Confirm Password"
+                  title="Confirm Password"
+                  onChangeText={(e) => setcPassword(e.target.value)}
+                />
                 <GradientButton
-                  title={"Proceed"}
+                  title={"Register"}
                   onPress={() => ProceedTapped()}
                   buttonWidth="40%"
                 />
+                <LoginLink
+                  onClick={() => {
+                    let userData = window.sessionStorage.getItem("userData");
+                    let stringifiedUserData =
+                      userData !== null ? JSON.parse(userData) : null;
+                    setuserData(stringifiedUserData);
+                    setRegistered(true);
+                  }}
+                >
+                  Login Instead
+                </LoginLink>
               </>
             )}
             <FollowComponent />

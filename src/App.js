@@ -58,7 +58,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("signupReducer", this.props.signupReducer);
     return (
       <Provider store={store}>
         <Router>
