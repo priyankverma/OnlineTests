@@ -113,7 +113,7 @@ export const Dashboard = (props) => {
     const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
-    link.download = "userReport.json";
+    link.download = data.username + "_Report.json";
     link.href = url;
     link.click();
   };

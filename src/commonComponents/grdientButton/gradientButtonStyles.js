@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   /* width: ${(props) => props.width}; */
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   background-image: linear-gradient(
     to right top,
     #fab823,

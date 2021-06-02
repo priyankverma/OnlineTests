@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   border: 2px solid orange;
   align-items: center;
   padding: 2%;
+  cursor: pointer;
+
   @media ${device.mobileS} {
     height: 30px;
     width: 40%;

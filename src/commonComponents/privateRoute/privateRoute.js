@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  withRouter,
-  Redirect,
-} from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 const PrivateRoute = ({ children, ...rest }) => {
   const reducerData = useSelector((state) => state);
